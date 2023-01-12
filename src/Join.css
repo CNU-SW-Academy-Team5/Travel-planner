@@ -1,0 +1,92 @@
+.JoinPage{
+    position:absolute;
+
+    width: 280px;
+    height: 500px;
+    right: 17%;
+    top: 120px;
+  
+    transform: translate(-50%,0);
+  
+    background-color: white;
+  
+    overflow: hidden;
+  
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .JoinTitle{
+    margin-top: 87px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 700;
+    color: skyblue;
+    text-align: center;
+  }
+
+  
+  .JoinContent{
+    margin-top: 26px;
+    flex: 1;
+  }
+  
+  .JoinInputTitle{
+    font-size: 12px;
+    font-weight: 600;
+    color: skyblue;
+  }
+  
+  .JoinInputWrap{
+    display: flex;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e0e0;
+  }
+  
+  .JoinInputWrap:focus-within{
+    border: 1px solid skyblue;
+  }
+  
+  .JoinInput{
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 17px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .JoinInput::placeholder{
+    color: #dadada;
+  }
+  
+  .JoinErrorMessageWrap{
+    margin-top: 8px;
+    color: #ef0000;
+    font-size: 12px;
+  }
+  
+  .JoinBottomButton{
+    width: 35%;
+    height: 30px;
+    border: none;
+    font-weight: 700;
+    background-color: rgb(17, 60, 77);
+    border-radius: 64px;
+    color: white;
+    margin-bottom: 45%;
+    margin-top: 10px;
+    margin-left: 90px;
+    cursor: pointer;
+    
+  }
+  
+  .JoinBottomButton:disabled{
+    background-color: skyblue;
+    color: white;
+  }
+  
+  
