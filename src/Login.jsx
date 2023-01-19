@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router";
+
 
 const User ={
     email: 'sw@naver.com',
     pw: 'sw12345!!'
 }
+
 export default function Login() {
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
@@ -12,6 +15,8 @@ export default function Login() {
     const [emailValid, setEmailValid] = useState(false);
     const [pwValid, setPwValid] = useState(false);
     const [notAllow, setNotAllow] = useState(true);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
       if(emailValid && pwValid) {
@@ -43,7 +48,8 @@ export default function Login() {
     };
     const onClickConfirmButton = () => {
       if(email === User.email && pw === User.pw) {
-        alert('로그인에 성공했습니다.')
+        alert('로그인에 성공했습니다.');
+        navigate('/home')
       } else {
         alert("등록되지 않은 회원입니다.");
       }
@@ -92,11 +98,10 @@ export default function Login() {
             )}
           </div>
         </div>
-
         <div>
-          <button onClick={onClickConfirmButton} disabled={notAllow} className="bottomButton">
+            <button onClick={onClickConfirmButton} disabled={notAllow} className="bottomButton">
             확인
-          </button>
+            </button>
         </div>
       </div>
     );

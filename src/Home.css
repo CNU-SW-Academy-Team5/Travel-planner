@@ -1,0 +1,142 @@
+.nameWrap{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.myImg{
+    position: absolute;
+    width: 98px;
+    height: 98px;
+    left: 477px;
+    top: 158px;
+    border-radius: 50%;
+}
+.myId{
+    position: absolute;
+    width: 51px;
+    height: 33px;
+    left: 503px;
+    top: 250px;
+
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 32px;
+    color: #000000;
+}
+.myListWrap{
+    position: absolute;
+    width: 141px;
+    height: 140px;
+    left: 668px;
+    top: 158px;
+    border: 1px solid black;
+    border-radius: 20%;
+}
+.myList{
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px; 
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+
+}
+.myListCount{   
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 49px;
+    color: #000000;
+    text-align: center;   
+}
+.myListPlusWrap{
+    position: absolute;
+    width: 141px;
+    height: 140px;
+    left: 865px;
+    top: 158px;
+    border: 1px solid black;
+    border-radius: 20%;
+    
+}
+.myListPlus{   
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+
+}
+.myListPlusCount{
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 50px;
+    line-height: 0px;
+    color: #000000;
+    text-align: center; 
+}
+.myListShowWrap{
+    position: absolute;
+    width: 955px;
+    height: 564px;
+    left: 258px;
+    top: 346px;
+    
+}
+.myListShow{ 
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;  
+    color: #000000;   
+}
+.myListShowBoxTable{
+    background: rgba(205, 240, 243, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+
+    width: 600px;
+    height: 200px;
+    margin: 0 auto; 
+}
+.myListShowBoxTable>table{
+    font-family: 'Jaldi';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+
+    text-align: center;
+    color: black;
+    margin-left: 12%;
+    margin-top: 5%;
+}
+.myTrip{
+    color: skyblue;
+    font-weight: 600;
+}
+table>tbody>tr>td{
+    padding: 10px;
+    padding-top: 10%;
+}
+.button{
+    background: skyblue;
+    border-radius: 5px;    
+    width: 93px;
+    height: 54px;
+    color: white;
+    border: 1px solid skyblue;
+    margin: 20px;
+    margin-left: 68px;
+}
