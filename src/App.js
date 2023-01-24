@@ -8,6 +8,7 @@ import Login from './Login';
 import Join from './Join';
 import Home from './Home';
 import ListShare from './ListShare';
+import Main from './Main';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<><Login/> <Join/></>}></Route>
           <Route path='home' element={<Home/>}></Route>
           <Route path='listplus' element={<><ListPlus/> <ListShare/></>}></Route>
+          <Route path='main' element={<Main/>}></Route>
         </Routes>
       </BrowserRouter>
 

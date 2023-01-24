@@ -7,6 +7,7 @@ const User ={
     email: 'sw@naver.com',
     pw: 'sw12345!!'
 }
+{/*지정된 User 아이디와 비밀번호로 로그인 후 확인 누르면 다음 페이지(Home 페이지)로 넘어감*/}
 
 export default function Login() {
     const [email, setEmail] = useState('');
