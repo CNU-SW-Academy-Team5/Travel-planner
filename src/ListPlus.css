@@ -21,6 +21,15 @@
     color: rgba(0, 0, 0, 0.5);
     
 }
+.ListNameDate{
+    font-family: 'IBM Plex Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 26px;   
+    color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+}
 .textBox{
     width: 350px;
     height: 61px;
@@ -36,5 +45,15 @@
 .List{
     position: absolute;
     left: 22%;
-    bottom: 20%;
+    bottom: 18%;
+}
+.CalendarBtn{
+    background: skyblue;
+    border-radius: 5px;    
+    width: 120px;
+    height: 40px;
+    color: white;
+    border: 1px solid skyblue;
+    margin: 20px;
+    margin-left: 170px;
 }
