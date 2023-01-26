@@ -1,14 +1,14 @@
 
 import './App.css';
 import React from 'react';
-import ListPlus from './ListPlus';
+import ListPlus from './pages/listplus/ListPlus';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 import Login from './Login';
-import Join from './Join';
-import Home from './Home';
-import ListShare from './ListShare';
-import Main from './Main';
+import Join from './pages/join/Join';
+import Home from './pages/home/Home';
+import ListShare from './pages/listshare/ListShare';
+import Main from './pages/main/Main';
 
 function App() {
   return (

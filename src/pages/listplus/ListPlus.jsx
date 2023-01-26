@@ -44,7 +44,7 @@ export default function ListPlus(){
             )}
              
              </div>
-            <input type={"text"} placeholder="2022.12.28" className="textBox"></input>
+            <input type={"text"} placeholder="2022.12.28" className="textBox" value={`${startDate.toDateString()} ~ ${endDate.toDateString()}`}></input>
             </div>
             <div className="ListBox">
             <p className="ListName">방문 지역</p>
