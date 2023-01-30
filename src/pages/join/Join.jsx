@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
+import './Join.css';
 
 const User ={
     email: 'sw@naver.com',
