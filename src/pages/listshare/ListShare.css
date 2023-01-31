@@ -87,3 +87,11 @@ li{
     
     color: #000000;
   }
+  .PlusName{
+    width: 200px;
+    height: 61px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 1px solid white;
+  }
