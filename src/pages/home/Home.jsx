@@ -2,9 +2,15 @@ import React from "react";
 // import spongebob from "C:/Users/aksgd/OneDrive/바탕 화면/Travel-planner-FE/frontend/src/img/spongebob.png";
 import './Home.css';
 import { useNavigate } from "react-router";
+import { useState } from "react";
 
-export default function Home(){
+
+export default function Home(){ 
     const navigate = useNavigate();
+    const [trip, setTrip] = useState('');
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
+    const [listCount, setListCount] = useState(0);
 
     return(
     <div>
@@ -14,7 +20,7 @@ export default function Home(){
         </div>
         <div className="myListWrap">
             <p className="myList">나의 일정</p>
-            <p className="myListCount">3</p>
+            <p className="myListCount">{listCount}</p>
         </div>
         <button className="myListPlusWrap" onClick={() => navigate('/listplus')}>
             <p className="myListPlus">일정 추가</p> 
@@ -28,9 +34,9 @@ export default function Home(){
                         <tbody>
                         <tr>
                             <td className="myTrip">여행 이름</td>
-                            <td>제주도 여행</td>
+                            <td>{trip}</td>
                             <td className="myTrip">여행 일자</td>
-                            <td>2022.12.28~2022.12.30</td>
+                            <td>{`${startDate.toDateString()} ~ ${endDate.toDateString()}`}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -45,9 +51,9 @@ export default function Home(){
                         <tbody>
                         <tr>
                             <td className="myTrip">여행 이름</td>
-                            <td>부산 여행</td>
+                            <td>{trip}</td>
                             <td className="myTrip">여행 일자</td>
-                            <td>2022.12.28~2022.12.30</td>
+                            <td>{`${startDate.toDateString()} ~ ${endDate.toDateString()}`}</td>
                         </tr>
                         </tbody>
                     </table>
