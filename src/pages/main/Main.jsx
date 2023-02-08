@@ -7,7 +7,14 @@ import axios from 'axios';
 
 export default function Main(){
   const [divs, setDivs] = useState([]);
-  const [helloData, setHelloData] = useState([]);
+  const [date, setDate] = useState(new Date());
+  const [divsMemo, setDivsMemo] = useState([]);
+
+  const handleClick = () => {
+    setDivsMemo([...divs, <div key={divs.length} className='plusMemo'></div>]);
+  };
+  
+ /*const [helloData, setHelloData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,15 +27,15 @@ export default function Main(){
       }
     }
     fetchData();
-  }, []);
+  }, []);*/
     return(
         <div>
-         {helloData.map((data, index) => (
+        {/*{helloData.map((data, index) => (
         <p key={index}>{data}</p>
-      ))}
-        {/* <div>
-        <button onClick={() => setDivs([...divs, <Draggable><div className='pluscircle' key={divs.length}></div></Draggable>])}>
-        일정 넣기
+        ))}*/}
+        <div>
+        <button className="plusbtn" onClick={() => setDivs([...divs, <Draggable><div className='pluscircle' key={divs.length}></div></Draggable>])}>
+        일정 추가
         </button>
         {divs.map((div, index) => (
         div
@@ -38,14 +45,17 @@ export default function Main(){
             <div className="line"></div>
         </div>
         <Draggable>
-          <div className="circle" />
+          <div className="circle">{date.toLocaleDateString()}</div>
         </Draggable>
         <Draggable>
-          <div className="circle" />
+          <div className="circle">{date.toLocaleDateString()}</div>
         </Draggable>
         <Draggable>
-          <div className="circle" />
-        </Draggable> */}
+          <div className="circle">{date.toLocaleDateString()}</div>
+        </Draggable>
+        <div className="memo">
+  
+        </div>
       </div>
         
     )
