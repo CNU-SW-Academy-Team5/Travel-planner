@@ -14,7 +14,7 @@ export default function Main(){
     setDivsMemo([...divs, <div key={divs.length} className='plusMemo'></div>]);
   };
   
- /*const [helloData, setHelloData] = useState([]);
+ const [helloData, setHelloData] = useState([]);
 
   useEffect(() => {
     async function fetchData() {
@@ -27,7 +27,7 @@ export default function Main(){
       }
     }
     fetchData();
-  }, []);*/
+  }, []);
     return(
         <div>
         {/*{helloData.map((data, index) => (

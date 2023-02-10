@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 // import spongebob from "C:/Users/aksgd/OneDrive/바탕 화면/Travel-planner-FE/frontend/src/img/spongebob.png";
 import './Home.css';
 import { useNavigate } from "react-router";
 import { useState } from "react";
 
-
 export default function Home(){ 
     const navigate = useNavigate();
-    const [trip, setTrip] = useState('');
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(new Date());
-    const [listCount, setListCount] = useState(0);
+    const [travelList, setTravelList] = useState( [{name: '일본 여행', startDate: new Date().toDateString(), endDate: (new Date()).toDateString()}, {name: '일본 여행2', startDate: Date.now(), endDate: Date.now()}])
+
+    useEffect(() => {
+        // fetch('/').then((res) => {
+        //     setTravelList(res.json())
+        // })
+    })
 
     return(
     <div>
@@ -20,7 +22,7 @@ export default function Home(){
         </div>
         <div className="myListWrap">
             <p className="myList">나의 일정</p>
-            <p className="myListCount">{listCount}</p>
+            <p className="myListCount">{travelList.length}</p>
         </div>
         <button className="myListPlusWrap" onClick={() => navigate('/listplus')}>
             <p className="myListPlus">일정 추가</p> 
@@ -28,15 +30,17 @@ export default function Home(){
         </button>
         <div className="myListShowWrap">
             <p className="myListShow">일정 리스트</p>
+        {travelList.map((value)=>(
+
             <div className="myListShowBox">
                 <div className="myListShowBoxTable">
                     <table>
                         <tbody>
                         <tr>
                             <td className="myTrip">여행 이름</td>
-                            <td>{trip}</td>
+                            <td>{value.name}</td>
                             <td className="myTrip">여행 일자</td>
-                            <td>{`${startDate.toDateString()} ~ ${endDate.toDateString()}`}</td>
+                            <td>{`${value.startDate} ~ ${value.endDate}`}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -45,24 +49,9 @@ export default function Home(){
                     <button className="button">일정 삭제</button>
                 </div>
             </div>
-            <div className="myListShowBox">
-                <div className="myListShowBoxTable">
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td className="myTrip">여행 이름</td>
-                            <td>{trip}</td>
-                            <td className="myTrip">여행 일자</td>
-                            <td>{`${startDate.toDateString()} ~ ${endDate.toDateString()}`}</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                    <button className="button">일정 수정</button>
-                    <button className="button">일정 수정</button>
-                    <button className="button">일정 수정</button>
-                </div>
-            </div>
+        ))}
         </div>
+        
     </div>
     )
 }
