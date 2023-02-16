@@ -14,7 +14,7 @@ export default function Home(){
     //     })
     // })
     useEffect(() => {
-        fetch('/')
+        fetch('/')  
           .then(response => response.json())
           .then(data => {
             setTravelList(data);
@@ -40,7 +40,8 @@ export default function Home(){
         </button>
         <div className="myListShowWrap">
             <p className="myListShow">일정 리스트</p>
-        {travelList.map((value)=>(
+        {/* {travelList.map((value)=>( */}
+        {travelList.map((item, index) => (
                 <div className="myListShowBoxTable" key={index}>
                     <table>
                         <tbody>

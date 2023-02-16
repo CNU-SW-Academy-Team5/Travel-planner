@@ -8,7 +8,7 @@ const ListShare = () => {
 
   const handleAddParty = (name) => {
     setParties([...parties, name]);
-    const response = fetch('/listshare', {
+    const response = fetch('/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

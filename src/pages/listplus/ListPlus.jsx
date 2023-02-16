@@ -10,7 +10,29 @@ export default function ListPlus(){
         const [endDate, setEndDate] = useState(new Date());
         const [showCalendar, setShowCalendar] = useState(false);
         const [date, setDate] = useState(new Date());
-
+        const [name, setName] = useState("");
+        const [area, setArea] = useState("");
+      
+        const handleSubmit = (event) => {
+          event.preventDefault();
+      
+          const data = { name: name, startDate: startDate, endDate: endDate, area: area };
+      
+          fetch("/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        };
       
     return(
         <div className="ListPlusWrap">
