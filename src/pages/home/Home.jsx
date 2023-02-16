@@ -6,13 +6,23 @@ import { useState } from "react";
 
 export default function Home(){ 
     const navigate = useNavigate();
-    const [travelList, setTravelList] = useState( [{name: '일본 여행', startDate: new Date().toDateString(), endDate: (new Date()).toDateString()}, {name: '일본 여행2', startDate: Date.now(), endDate: Date.now()}])
-
+    // const [travelList, setTravelList] = useState( [{name: '일본 여행', startDate: new Date().toDateString(), endDate: (new Date()).toDateString()}, {name: '일본 여행2', startDate: Date.now(), endDate: Date.now()}])
+    const [travelList, setTravelList] = useState( [{name: '', startDate: '', endDate: ''}])
+    // useEffect(() => {
+    //     fetch('/').then((res) => {
+    //         setTravelList(res.json())
+    //     })
+    // })
     useEffect(() => {
-        // fetch('/').then((res) => {
-        //     setTravelList(res.json())
-        // })
-    })
+        fetch('/')
+          .then(response => response.json())
+          .then(data => {
+            setTravelList(data);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      }, []);
 
     return(
     <div>
@@ -31,16 +41,16 @@ export default function Home(){
         <div className="myListShowWrap">
             <p className="myListShow">일정 리스트</p>
         {travelList.map((value)=>(
-
-            <div className="myListShowBox">
-                <div className="myListShowBoxTable">
+                <div className="myListShowBoxTable" key={index}>
                     <table>
                         <tbody>
                         <tr>
                             <td className="myTrip">여행 이름</td>
-                            <td>{value.name}</td>
+                            {/* <td>{value.name}</td> */}
+                            <td>{item.name}</td>
                             <td className="myTrip">여행 일자</td>
-                            <td>{`${value.startDate} ~ ${value.endDate}`}</td>
+                            {/* <td>{`${value.startDate} ~ ${value.endDate}`}</td> */}
+                            <td>{`${item.startDate} ~ ${item.endDate}`}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -48,7 +58,6 @@ export default function Home(){
                     <button className="button">일정 공유</button>
                     <button className="button">일정 삭제</button>
                 </div>
-            </div>
         ))}
         </div>
         
