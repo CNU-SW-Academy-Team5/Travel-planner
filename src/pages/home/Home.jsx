@@ -8,24 +8,29 @@ export default function Home(){
     const navigate = useNavigate();
     // const [travelList, setTravelList] = useState( [{name: '일본 여행', startDate: new Date().toDateString(), endDate: (new Date()).toDateString()}, {name: '일본 여행2', startDate: Date.now(), endDate: Date.now()}])
     const [travelList, setTravelList] = useState( [{name: '', startDate: '', endDate: ''}])
+    
     // useEffect(() => {
     //     fetch('/').then((res) => {
     //         setTravelList(res.json())
     //     })
     // })
+    
     useEffect(() => {
-        fetch('/')  
+        fetch('/plan-list')  
           .then(response => response.json())
           .then(data => {
-            setTravelList(data);
+            setTravelList(data.data.content);
+            console.log(data.data.content);
           })
           .catch(error => {
             console.error('Error:', error);
           });
+         
       }, []);
 
-    return(
+    return(    
     <div>
+        
         <div className="nameWrap">    
             <img className="myImg" img="https://w.namu.la/s/bd52223e4d1f11fcc4c7f6506bf3321b26579bf118db6c1ca20492b9af4228a414edd25f1006baace220e4ca771288e0f38d6cbf253ae4e9d39aaf4b881600b0d65e518e7d94891837ee9a0c6a723aac0f4d2b7bf4a65b36bd1fe636aa49c632" alt="spongebob"/>
             <p className="myId">mall</p>
@@ -41,8 +46,8 @@ export default function Home(){
         <div className="myListShowWrap">
             <p className="myListShow">일정 리스트</p>
         {/* {travelList.map((value)=>( */}
-        {travelList.map((item, index) => (
-                <div className="myListShowBoxTable" key={index}>
+        {travelList.map((item) => (
+                <div className="myListShowBoxTable" key={item.id}>
                     <table>
                         <tbody>
                         <tr>

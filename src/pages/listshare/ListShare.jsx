@@ -5,41 +5,52 @@ import { useNavigate } from "react-router";
 const ListShare = () => {
   const [parties, setParties] = useState([]);
   const navigate = useNavigate();
+  const [newParty, setNewParty] = useState('');
 
   const handleAddParty = (name) => {
     setParties([...parties, name]);
-    const response = fetch('/', {
+    const data = {newParty:newParty };
+    console.log(data);
+    fetch('/user-name', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ name })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error: ', error);
     });
-    const data = response.json();
-    console.log(data);
+    setNewParty('');
   };
 
   const handleRemoveParty = (index) => {
     setParties(parties.filter((party, i) => i !== index));
   };
 
+  const InputPartyName = (e) => {
+    setNewParty(e.target.value);
+    console.log(e.target.value)
+  }
+
   return (
     <div className='ListShareWrap'>
     
       <p className='ListShareName'>일정 공유/관리</p>
       <div>
-        {/* <button className='PlusButton' onClick={() => handleAddParty(prompt("일행을 추가하세요."))}>
-          추가 {/*추가 버튼 누르면 '일행을 추가하세요' 경고창 -> 이름 추가
-        </button> */}
        <form onSubmit={(e) => {
         e.preventDefault();
         handleAddParty(e.target.name.value);
         }}>
-        <input className='PlusName' type="text" name="name" />
-        <button className='PlusButton' type="submit">추가</button>
+        <input className='PlusName' type="text" name="name" onChange={InputPartyName} />
+        <button className='PlusButton' type="submit" value={parties}>추가</button>
        </form>
         <button className='SaveButton'onClick={() => navigate('/main')}>
-            저장 {/*저장 누르면 다음 페이지(메인페이지)로*/}
+            저장
         </button>
         <div className='ListShareUl'>
         <ul>
