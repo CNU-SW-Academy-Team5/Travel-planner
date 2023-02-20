@@ -3,22 +3,24 @@ import './ListPlus.css';
 import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { useNavigate } from "react-router";
 
 export default function ListPlus(){
-
+        const navigate = useNavigate();
         const [startDate, setStartDate] = useState(new Date());
         const [endDate, setEndDate] = useState(new Date());
         const [showCalendar, setShowCalendar] = useState(false);
-        const [date, setDate] = useState(new Date());
+        
         const [name, setName] = useState("");
         const [area, setArea] = useState("");
       
         const handleSubmit = (event) => {
           event.preventDefault();
       
-          const data = { name: name, startDate: startDate, endDate: endDate, area: area };
+          const data = { id: 3, name: name, startDate: startDate, endDate: endDate, region: area };
+          console.log(data);
       
-          fetch("/", {
+          fetch("/plan", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -28,11 +30,22 @@ export default function ListPlus(){
             .then((response) => response.json())
             .then((data) => {
               console.log("Success:", data);
+              console.log(data);
             })
             .catch((error) => {
               console.error("Error:", error);
             });
         };
+
+        const nameInputhandle = (e) => {
+          console.log(e.target.value);
+          setName(e.target.value);
+        }
+
+        const regionInputhandle = (e) =>{
+          console.log(e.target.value);
+          setArea(e.target.value);
+        }
       
     return(
         <div className="ListPlusWrap">
@@ -40,7 +53,7 @@ export default function ListPlus(){
             <div className="List">
             <div className="ListBox">
             <p className="ListName">일정 이름</p>
-            <input type={"text"} placeholder="제주도 여행" className="textBox"></input>
+            <input type={"text"} placeholder="제주도 여행" className="textBox" value={name} onChange={nameInputhandle}></input>
             </div>
             <div className="ListBox">
             <div className="ListBoxCalendar">
@@ -70,8 +83,10 @@ export default function ListPlus(){
             </div>
             <div className="ListBox">
             <p className="ListName">방문 지역</p>
-            <input type={"text"} placeholder="제주도" className="textBox"></input>
+            <input type={"text"} placeholder="제주도" className="textBox" onChange={regionInputhandle} value={area}></input>  
             </div>
+            <button type='submit'onClick={handleSubmit}>저장</button>
+            <button onClick={() => navigate('/listshare')}>다음</button>
             </div>
         </div>
     )

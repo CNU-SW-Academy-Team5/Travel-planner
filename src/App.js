@@ -18,7 +18,8 @@ function App() {
         <Routes>
           <Route path='/' element={<><Login/> <Join/></>}></Route>
           <Route path='home' element={<Home/>}></Route>
-          <Route path='listplus' element={<><ListPlus/> <ListShare/></>}></Route>
+          <Route path='listplus' element={<ListPlus/>}></Route>
+          <Route path='listshare' element={<ListShare/>}></Route>
           <Route path='main' element={<Main/>}></Route>
         </Routes>
       </BrowserRouter>
