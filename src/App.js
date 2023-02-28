@@ -9,6 +9,9 @@ import Join from './pages/join/Join';
 import Home from './pages/home/Home';
 import ListShare from './pages/listshare/ListShare';
 import Main from './pages/main/Main';
+import MainPlan from './pages/mainplan/MainPlan';
+import PlanGraph from './component/plangragh/PlanGraph';
+import MainList from './pages/mainlist/MainList';
 
 function App() {
   return (
@@ -20,7 +23,9 @@ function App() {
           <Route path='home' element={<Home/>}></Route>
           <Route path='listplus' element={<ListPlus/>}></Route>
           <Route path='listshare' element={<ListShare/>}></Route>
-          <Route path='main' element={<Main/>}></Route>
+          <Route path='mainplan' element={<MainPlan/>}></Route>
+          <Route path='plangraph' element={<PlanGraph/>}></Route>
+          <Route path='mainlist' element={<MainList/>}></Route>
         </Routes>
       </BrowserRouter>
 

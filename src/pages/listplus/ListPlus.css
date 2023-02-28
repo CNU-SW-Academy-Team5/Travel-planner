@@ -1,16 +1,27 @@
 .ListPlus{
     position: absolute;
-
-    left: 420px;
-    top: 100px;
+    left: 440px;
+    top: 98px;
     
     font-family: 'IBM Plex Sans';
     font-style: normal;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 25px;
     line-height: 39px;
   
-    color: #000000;
+    color: rgb(17, 60, 77);
+}
+.CalendarIcon{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+.ListBox{
+    padding: 10px;
+}
+.List{
+    position: absolute;
+    left: 320px;
+    top: 180px;
 }
 .ListName{
     font-family: 'IBM Plex Sans';
@@ -18,8 +29,7 @@
     font-weight: 600;
     font-size: 15px;
     line-height: 26px;   
-    color: rgba(0, 0, 0, 0.5);
-    
+    color: rgba(0, 0, 0, 0.5);  
 }
 .ListNameDate{
     font-family: 'IBM Plex Sans';
@@ -39,21 +49,40 @@
     border: 1px solid white;
 
 }
-.ListBox{
-    padding: 10px;
-}
-.List{
-    position: absolute;
-    left: 22%;
-    bottom: 18%;
-}
-.CalendarBtn{
-    background: skyblue;
-    border-radius: 5px;    
+.CalendarBtn{ 
     width: 120px;
     height: 40px;
-    color: white;
-    border: 1px solid skyblue;
     margin: 20px;
     margin-left: 170px;
+
+    border: 1px solid rgb(213, 210, 210);
+    border-radius: 10px;
+    background-color: white;
+}
+.CalendarBtn:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+.BtnWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: absolute;
+    left: 110%;
+    top: 18%;
+}
+.ListSubmitBtn{
+    width: 120px;
+    height: 40px;
+    margin: 50px;
+    margin-left: 170px;
+
+    border: 1px solid rgb(213, 210, 210);
+    border-radius: 10px;
+    background-color: white;
+}
+.ListSubmitBtn:hover{
+    background-color: whitesmoke;
+    cursor: pointer;
 }

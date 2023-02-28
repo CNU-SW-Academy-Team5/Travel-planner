@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import { useNavigate } from "react-router";
+import {BsCalendarPlus} from "react-icons/bs";
+import Logo from "../../component/logo/Logo";
 
 export default function ListPlus(){
         const navigate = useNavigate();
@@ -49,17 +51,17 @@ export default function ListPlus(){
       
     return(
         <div className="ListPlusWrap">
-            <p className="ListPlus">일정 추가하기</p>
+            <p className="ListPlus">일정 추가<BsCalendarPlus className="CalendarIcon"/></p>
             <div className="List">
             <div className="ListBox">
             <p className="ListName">일정 이름</p>
-            <input type={"text"} placeholder="제주도 여행" className="textBox" value={name} onChange={nameInputhandle}></input>
+            <input type={"text"} className="textBox" value={name} onChange={nameInputhandle}></input>
             </div>
             <div className="ListBox">
             <div className="ListBoxCalendar">
             <p className="ListNameDate">여행 일자</p>
              <button className="CalendarBtn"onClick={() => setShowCalendar(!showCalendar)}>
-              여행 달력 펼치기 {/*달력 펼쳐서 시작 날짜, 끝 날짜 설정*/}
+              날짜 선택
              </button>
             {showCalendar && (
                <div>
@@ -70,24 +72,21 @@ export default function ListPlus(){
                    setEndDate(end);
                  }}
                />
-               <div>
-                 여행 시작: {startDate.toDateString()}
-                 <br/>
-                 여행 끝: {endDate.toDateString()}
-               </div>
              </div>
-            )}
-             
+            )}    
              </div>
-            <input type={"text"} placeholder="2022.12.28" className="textBox" value={`${startDate.toDateString()} ~ ${endDate.toDateString()}`}></input>
+            <input type={"text"} placeholder="2022.12.28" className="textBox" value={`${startDate.toISOString().substring(0, 10)} ~ ${endDate.toISOString().substring(0, 10)}`}></input>
             </div>
             <div className="ListBox">
             <p className="ListName">방문 지역</p>
-            <input type={"text"} placeholder="제주도" className="textBox" onChange={regionInputhandle} value={area}></input>  
+            <input type={"text"} className="textBox" onChange={regionInputhandle} value={area}></input>  
             </div>
-            <button type='submit'onClick={handleSubmit}>저장</button>
-            <button onClick={() => navigate('/listshare')}>다음</button>
+            <div className="BtnWrap">
+            <button className='ListSubmitBtn' type='submit'onClick={handleSubmit}>저장</button>
+            <button className="ListSubmitBtn" onClick={() => navigate('/listshare')}>다음</button>
             </div>
+            </div>
+            <Logo/>
         </div>
     )
 }
