@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './ListShare.css';
 import { useNavigate } from "react-router";
+import Logo from '../../component/logo/Logo';
+import {RiUserShared2Line} from "react-icons/ri";
 
 const ListShare = () => {
   const [parties, setParties] = useState([]);
@@ -9,7 +11,7 @@ const ListShare = () => {
 
   const handleAddParty = (name) => {
     setParties([...parties, name]);
-    const data = {newParty:newParty };
+    const data = {parties: parties};
     console.log(data);
     fetch('/user-name', {
       method: 'POST',
@@ -39,9 +41,8 @@ const ListShare = () => {
 
   return (
     <div className='ListShareWrap'>
-    
-      <p className='ListShareName'>일정 공유/관리</p>
-      <div>
+    <p className="ListShare">일정 공유/관리<RiUserShared2Line className="CalendarIcon"/></p>
+      <div className='ListShareForm'>
        <form onSubmit={(e) => {
         e.preventDefault();
         handleAddParty(e.target.name.value);
@@ -49,22 +50,23 @@ const ListShare = () => {
         <input className='PlusName' type="text" name="name" onChange={InputPartyName} />
         <button className='PlusButton' type="submit" value={parties}>추가</button>
        </form>
-        <button className='SaveButton'onClick={() => navigate('/main')}>
-            저장
-        </button>
         <div className='ListShareUl'>
         <ul>
           {parties.map((party, index) => (
             <li className='ListShareLi' key={index}>
             <button className='MinusButton' onClick={() => handleRemoveParty(index)}>
                 삭제
-            </button>    
-              {party}
+            </button> 
+              {party}   
             </li>
           ))}
         </ul>
         </div>
+        <button className='SaveButton'onClick={() => navigate('/mainPlan')}>
+            다음
+        </button>
       </div>
+      <Logo/>
     </div>
   );
 };
