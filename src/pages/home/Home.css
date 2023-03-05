@@ -52,8 +52,9 @@
     position: absolute;
     width: 955px;
     height: 564px;
-    left: 258px;
-    top: 346px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 80%;
 }
 .myListShowBoxTable{
     background: rgba(238, 249, 250, 0.5);
@@ -64,6 +65,11 @@
     height: 200px;
     margin: 0 auto; 
 }
+.myListShowBoxTable td{
+    width: 120px;
+    padding: 40px 10px;
+}
+
 .myTrip{
     color: rgb(17, 60, 77);
     font-family: 'IBM Plex Sans';
