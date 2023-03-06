@@ -42,7 +42,7 @@ export default function Join(){
       const onClickConfirm = (event) => {
           event.preventDefault();
       
-          const data = { email: email, password: pw, name: name};
+          const data = { id:10, email: email, password: pw, name: name};
           console.log(data);
       
           fetch("/signup", {
