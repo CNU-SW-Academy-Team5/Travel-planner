@@ -11,7 +11,6 @@ import ListShare from './pages/listshare/ListShare';
 import Main from './pages/main/Main';
 import MainPlan from './pages/mainplan/MainPlan';
 import PlanGraph from './component/plangragh/PlanGraph';
-import MainList from './pages/mainlist/MainList';
 
 function App() {
   return (
@@ -25,7 +24,6 @@ function App() {
           <Route path='listshare' element={<ListShare/>}></Route>
           <Route path='mainplan' element={<MainPlan/>}></Route>
           <Route path='plangraph' element={<PlanGraph/>}></Route>
-          <Route path='mainlist' element={<MainList/>}></Route>
         </Routes>
       </BrowserRouter>
 

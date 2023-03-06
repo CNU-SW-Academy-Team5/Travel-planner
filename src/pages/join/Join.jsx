@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import './Join.css';
 
-const User ={
-    email: 'sw@naver.com',
-    pw: 'sw12345!!'
-}
+// const User ={
+//     email: 'sw@naver.com',
+//     pw: 'sw12345!!'
+// }
 export default function Join(){
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
+    const [name, setName] = useState('');
 
     const [emailValid, setEmailValid] = useState(false);
     const [pwValid, setPwValid] = useState(false);
@@ -23,6 +24,7 @@ export default function Join(){
           setEmailValid(false);
         }
       };
+      
       const handlePw = (e) => {
         setPw(e.target.value);
         const regex =
@@ -34,13 +36,39 @@ export default function Join(){
         }
       };
 
-    const onClickConfirm = () => {
-        if(email===User.email && pw===User.pw){
-            alert('회원가입 성공');
-        }else{
-            alert('이메일과 비밀번호를 바르게 입력해주세요.');
-        }
-    }
+      const handleName = (e) =>{
+        setName(e.target.value);
+      }
+      const onClickConfirm = (event) => {
+          event.preventDefault();
+      
+          const data = { email: email, password: pw, name: name};
+          console.log(data);
+      
+          fetch("/signup", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("Success:", data);
+              console.log(data);
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
+        };
+
+    // const onClickConfirm = () => {
+    //     if(email===User.email && pw===User.pw){
+    //         alert('회원가입 성공');
+    //     }else{
+    //         alert('이메일과 비밀번호를 바르게 입력해주세요.');
+    //     }
+    // }
 
     useEffect(() => {
     if(emailValid&&pwValid){
@@ -86,6 +114,7 @@ export default function Join(){
                     <div>영문, 숫자, 특수문자 포함 8자 이상</div>
                 )}
             </div>
+            <input type='text' value={name} onChange={handleName}></input>
             </div>
 
             <div>
