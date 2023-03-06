@@ -7,8 +7,6 @@ import Logo from "../../component/logo/Logo";
 export default function Home(){ 
     const navigate = useNavigate();
     const [travelList, setTravelList] = useState( [{name: '', startDate: '', endDate: ''}])
-    
-    
     useEffect(() => {
         fetch('/plan-list')  
           .then(response => response.json())
@@ -21,7 +19,18 @@ export default function Home(){
           });
          
       }, []);
-
+      const handleDelete = (id) => {
+        fetch(`/plan-list/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            setTravelList(prevList => prevList.filter(item => item.id !== id));
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
     return(    
     <div>  
         <div className="myListWrap">
@@ -48,7 +57,7 @@ export default function Home(){
                     </table>
                     <button>일정 수정</button>
                     <button>일정 공유</button>
-                    <button>일정 삭제</button>
+                    <button onClick={()=>handleDelete(item.id)}>일정 삭제</button>
                 </div>
         ))}
         </div>

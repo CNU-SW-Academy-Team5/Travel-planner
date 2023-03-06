@@ -48,7 +48,7 @@ export default function PlanGraph(){
       return updatedDayPlan;
     });
 
-    fetch('/', {
+    fetch('/detailed-plan', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -13,6 +13,7 @@ const ListShare = () => {
     setParties([...parties, name]);
     const data = {parties: parties};
     console.log(data);
+
     fetch('/user-name', {
       method: 'POST',
       headers: {

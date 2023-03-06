@@ -3,7 +3,6 @@ import './MainPlan.css';
 import { useState } from 'react';
 import { IoEarth } from "react-icons/io5";
 import PlanGraph from "../../component/plangragh/PlanGraph";
-import MainList from "../mainlist/MainList";
 import { useEffect } from "react";
 import {AiOutlineHome} from "react-icons/ai";
 import {AiOutlineUnorderedList} from "react-icons/ai";
@@ -12,15 +11,16 @@ import Logo from "../../component/logo/Logo";
 
 export default function MainPlan(){
 
-  const [date, setDate] = useState(new Date());
-  const [planName, setPlanName] = useState('제주도 여행');
+  const [startDate, setStartDate] = useState('');
+  const [planName, setPlanName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/')
+    fetch('/plan/{id}')
       .then(response => response.json())
       .then(data => {
-        setPlanName(data);
+        setPlanName(data.planName);
+        setStartDate(new Date(data.startDate));
         console.log(data);
       })
       .catch(error => {
@@ -33,13 +33,13 @@ export default function MainPlan(){
       <Logo/>
       <div className="planName">{planName}<IoEarth className="plannerIcon"/>
       <button className="homeBtn" onClick={() => navigate('/home')}>홈<AiOutlineHome/></button>
-      <button className="listBtn" onClick={() => navigate('/mainlist')}>리스트<AiOutlineUnorderedList/></button>
+      <button className="listBtn">리스트<AiOutlineUnorderedList/></button>
       </div>
       <div className="planGraphContainer">
-      <PlanGraph/>
+      <PlanGraph date={startDate}/>
       <PlanGraph/>
       <PlanGraph/>
       </div>
-      </div>    
+      </div>      
     )
 }
