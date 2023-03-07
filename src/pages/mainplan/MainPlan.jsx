@@ -16,11 +16,12 @@ export default function MainPlan(){
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch('/plan/{id}')
+    var sessionId=sessionStorage.getItem("id");
+    fetch(`/plan/${sessionId}`)
       .then(response => response.json())
       .then(data => {
-        setPlanName(data.planName);
-        setStartDate(new Date(data.startDate));
+        setPlanName(data.data.name);
+        setStartDate((data.data.startDate));
         console.log(data);
       })
       .catch(error => {
@@ -36,7 +37,7 @@ export default function MainPlan(){
       <button className="listBtn">리스트<AiOutlineUnorderedList/></button>
       </div>
       <div className="planGraphContainer">
-      <PlanGraph date={startDate}/>
+      <PlanGraph date={startDate}/> 
       <PlanGraph/>
       <PlanGraph/>
       </div>
