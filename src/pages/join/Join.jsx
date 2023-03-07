@@ -2,10 +2,6 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import './Join.css';
 
-// const User ={
-//     email: 'sw@naver.com',
-//     pw: 'sw12345!!'
-// }
 export default function Join(){
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
@@ -61,14 +57,6 @@ export default function Join(){
               console.error("Error:", error);
             });
         };
-
-    // const onClickConfirm = () => {
-    //     if(email===User.email && pw===User.pw){
-    //         alert('회원가입 성공');
-    //     }else{
-    //         alert('이메일과 비밀번호를 바르게 입력해주세요.');
-    //     }
-    // }
 
     useEffect(() => {
     if(emailValid&&pwValid){
