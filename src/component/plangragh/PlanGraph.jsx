@@ -7,7 +7,7 @@ import {IoChatbubbleOutline} from "react-icons/io5";
 
 export default function PlanGraph(){
   let posX =0;
-  const [date, setDate] = useState('');
+  const [date, setDate] = useState(new Date());
   const [dayPlan, setDayPlan] = useState([]);
 
   const [showMemo, setShowMemo] = useState(false);
