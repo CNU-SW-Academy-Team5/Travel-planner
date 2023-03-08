@@ -8,7 +8,7 @@ module.exports = function(app) {
     '/api',
     createProxyMiddleware({
       //스프링부트 포트가 8080이니까 여기 바꿈. 노드는 5000번
-      target: 'http://ec2-15-164-71-251.ap-northeast-2.compute.amazonaws.com:8080', 
+      target: "http://localhost:8080", 
       changeOrigin: true,
     })
   );

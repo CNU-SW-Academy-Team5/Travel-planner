@@ -17,7 +17,11 @@ const ListShare = () => {
     fetch(`/user-name/${name}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
+      console.log(data.email);
+      var result = window.confirm(data.data.email + "계정 추가가 맞으신가요?");
+      if(result){
+        alert("추가되었습니다");
+      }
     })
     .catch(error => {
       console.error('Error: ', error);
