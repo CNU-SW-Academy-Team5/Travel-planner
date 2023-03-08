@@ -58,6 +58,7 @@ export default function PlanGraph(){
     .then(response => response.json())
     .then(data => {
       console.log('Memo saved:', data);
+      sessionStorage.setItem("id", data.data);
     })
     .catch(error => {
       console.error('Error saving memo:', error);
