@@ -14,7 +14,7 @@ const ListShare = () => {
     const data = {parties: parties};
     console.log(data);
 
-    fetch('/user-name', {
+    fetch(`/user-nam/${name}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
