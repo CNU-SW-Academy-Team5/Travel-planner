@@ -12,6 +12,7 @@ import Logo from "../../component/logo/Logo";
 export default function MainPlan(){
 
   const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [planName, setPlanName] = useState('');
   const navigate = useNavigate();
 
@@ -22,13 +23,26 @@ export default function MainPlan(){
       .then(data => {
         setPlanName(data.data.name);
         setStartDate((data.data.startDate));
+        setEndDate((data.data.endDate));
         console.log(data);
       })
       .catch(error => {
         console.error('Error:', error);
       });
   }, []);
+  const getDays = (startDate, endDate) => {
+    let arr = [];
+    for (
+      let dt = new Date(startDate);
+      dt <= endDate;
+      dt.setDate(dt.getDate() + 1)
+    ) {
+      arr.push(new Date(dt));
+    }
+    return arr;
+  };
 
+  const dateDiff = getDays(startDate, endDate);
   return(
     <div>
       <Logo/>
@@ -37,9 +51,17 @@ export default function MainPlan(){
       <button className="listBtn">리스트<AiOutlineUnorderedList/></button>
       </div>
       <div className="planGraphContainer">
-      <PlanGraph date={startDate}/> 
+      {dateDiff.map((date, index) => {
+          return (
+            <div key={index}>
+              <PlanGraph date={date.toLocaleDateString()}/>
+            </div>
+          );
+        })}
+
+      {/* <PlanGraph date={startDate}/> 
       <PlanGraph/>
-      <PlanGraph/>
+      <PlanGraph/> */}
       </div>
       </div>      
     )

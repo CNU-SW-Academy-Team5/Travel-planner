@@ -74,6 +74,10 @@ export default function Join(){
             </div>
 
             <div className="JoinContent">
+            <div className="JoinInputTitle">닉네임</div>
+
+            <input className="JoinInputWrap"type='text' value={name} onChange={handleName}></input>
+
             <div className="JoinInputTitle">이메일</div>
             <div className="JoinInputWrap">
                 <input
@@ -102,7 +106,7 @@ export default function Join(){
                     <div>영문, 숫자, 특수문자 포함 8자 이상</div>
                 )}
             </div>
-            <input type='text' value={name} onChange={handleName}></input>
+            {/* <input className="JoinInput"type='text' value={name} onChange={handleName}></input> */}
             </div>
 
             <div>
